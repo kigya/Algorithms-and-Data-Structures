@@ -6,7 +6,7 @@ BSU Course
 
 ---
 
-> **Task 1.1.** Implement one of the hybrid algorithms combining quick sort and insertion sort as follows: in the quick sort algorithm, sections of an array of length less than some parameter k are sorted by insertion sort, without using fast sort recursion for them.
+> **Task 1.1.** Implement one of the hybrid algorithms combining quick sort and insertion sort as follows: in the quick sort algorithm, sections of an array of length less than some parameter k are sorted by insertion sort, without using fast sort recursion for them.<br/>
 **Task 1.2.** Implement one of the hybrid algorithms combining merge sorting and insertion sorting as follows: in the merge sorting algorithm, sections of an array of length less than some parameter k are sorted by insertion sorting, without using merge sorting recursion for them.
 Do a computational experiment. Find the optimal k for sorting R arrays of length N, whose elements are random integers in the range from 0 to M.
 Enable the user to set the parameters R,N and M.
