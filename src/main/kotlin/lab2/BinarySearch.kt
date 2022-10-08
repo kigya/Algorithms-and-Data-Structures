@@ -68,6 +68,4 @@ fun main() {
     println("Recursive: " + binarySearch.recursiveSearch())
 }
 
-// binary tree class
-
 
