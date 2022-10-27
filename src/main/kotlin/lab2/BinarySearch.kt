@@ -1,13 +1,12 @@
 package lab2
 
-private const val ARRAY_SIZE = 10
+private const val ARRAY_SIZE = 100
 private const val MAX_ELEMENT = 100
 
 private class BinarySearch(
     private val list: List<Int>,
     private val key: Int
 ) {
-
     fun search(): Int {
         var left = 0
         var right = list.size - 1
@@ -31,6 +30,29 @@ private class BinarySearch(
         return -1
     }
 
+    fun countOccurances(): Int {
+        var left = 0
+        var right = list.size - 1
+        while (left <= right) {
+            val middle = (left + right) / 2
+            if (list[middle] == key) {
+                var count = 1
+                var i = middle - 1
+                while (i >= 0 && list[i] == key) {
+                    count++
+                    i--
+                }
+                i = middle + 1
+                while (i < list.size && list[i] == key) {
+                    count++
+                    i++
+                }
+                return count
+            } else if (list[middle] < key) left = middle + 1 else right = middle - 1
+        }
+        return 0
+    }
+
     fun recursiveSearch(left: Int = 0, right: Int = list.size - 1): Int {
         if (left > right) {
             return -1
@@ -46,6 +68,7 @@ private class BinarySearch(
     fun searchNative(): Int {
         return list.binarySearch(key)
     }
+
 }
 
 /*
@@ -63,6 +86,7 @@ fun main() {
     println("Key: $key")
 
     val binarySearch = BinarySearch(randomArray, key)
+    println("Occurances: " + binarySearch.countOccurances())
     println("Custom: " + binarySearch.search())
     println("Native: " + binarySearch.searchNative())
     println("Recursive: " + binarySearch.recursiveSearch())

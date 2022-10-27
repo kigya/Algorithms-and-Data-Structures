@@ -33,7 +33,7 @@ class Stack<T> : Collection<T> {
     }
 
     override fun isEmpty(): Boolean {
-        return isEmpty()
+        return size == 0
     }
 
     override fun contains(element: T): Boolean {

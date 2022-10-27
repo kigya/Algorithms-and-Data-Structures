@@ -27,3 +27,7 @@ tasks.withType<KotlinCompile> {
 application {
     mainClass.set("MainKt")
 }
+
+dependencies {
+    implementation("guru.nidi:graphviz-kotlin:0.18.0")
+}

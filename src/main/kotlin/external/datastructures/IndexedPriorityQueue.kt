@@ -114,9 +114,7 @@ class IndexedPriorityQueue<T>(size: Int, private val comparator: Comparator<T>? 
         return inversedBinaryHeap[i] != -1
     }
 
-    override fun isEmpty(): Boolean {
-        return size == 0
-    }
+    override fun isEmpty(): Boolean = size == 0
 
     override fun contains(element: T): Boolean {
         for (obj in this) {
