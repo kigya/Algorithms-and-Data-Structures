@@ -38,19 +38,16 @@ class HungarianAlgorithmAdvanced(matrix: Array<IntArray>) {
         coverColumnsWhichContainMarkedZero()
         while (!this.allColumnsAreCovered()) {
             var mainZero = markZeros()
-            while (mainZero == null) {      // while no zero found in step4
+            while (mainZero == null) {    
                 step7()
                 mainZero = markZeros()
             }
             if (rowMarkedZeros[mainZero[0]] == -1) {
-                // there is no square mark in the mainZero line
                 createChainOfAlternatingSquares(mainZero)
-                coverColumnsWhichContainMarkedZero() // cover columns which contain a marked zero
+                coverColumnsWhichContainMarkedZero()
             } else {
-                // there is square mark in the mainZero line
-                // step 5
-                rowIsCovered[mainZero[0]] = 1 // cover row of mainZero
-                columnIsCovered[rowMarkedZeros[mainZero[0]]] = 0 // uncover column of mainZero
+                rowIsCovered[mainZero[0]] = 1
+                columnIsCovered[rowMarkedZeros[mainZero[0]]] = 0 
                 step7()
             }
         }
@@ -133,7 +130,7 @@ class HungarianAlgorithmAdvanced(matrix: Array<IntArray>) {
             if (rowIsCovered[i] == 0) {
                 matrix[i].indices.forEach { j ->
                     if (matrix[i][j] == 0 && columnIsCovered[j] == 0) {
-                        storageZeros[i] = j // mark as 0*
+                        storageZeros[i] = j
                         return intArrayOf(i, j)
                     }
                 }
